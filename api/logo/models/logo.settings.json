@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "logos",
+  "info": {
+    "name": "logo"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "logoId": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "logoImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "categories"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "category": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "bottomArticle": {
+      "type": "richtext",
+      "required": true
+    },
+    "categoryImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "briefDescription": {
+      "type": "text",
+      "required": true
+    },
+    "relatedCategories": {
+      "via": "leaveEmptyCategory",
+      "collection": "categories"
+    },
+    "leaveEmptyCategory": {
+      "via": "relatedCategories",
+      "model": "categories"
+    },
+    "categoryItem": {
+      "model": "menu",
+      "via": "subCategories"
+    },
+    "products": {
+      "via": "category",
+      "collection": "product"
+    }
+  }
+}

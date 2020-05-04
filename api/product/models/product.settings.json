@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "product"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "productImage": {
+      "type": "string",
+      "required": true
+    },
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "productLink": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "model": "categories",
+      "via": "products"
+    }
+  }
+}
